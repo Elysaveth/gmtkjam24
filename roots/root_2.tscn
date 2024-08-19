@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3qliea8g5arg"]
+
+[ext_resource type="Texture2D" uid="uid://b6137osb6vf5e" path="res://roots/sprites/raices2.png" id="1_5470h"]
+[ext_resource type="Script" path="res://scripts/branch.gd" id="1_srcef"]
+[ext_resource type="Resource" uid="uid://bloxm0h165c0r" path="res://resources/normal_root.tres" id="2_7j0k7"]
+
+[node name="root2" type="Node2D"]
+script = ExtResource("1_srcef")
+data = ExtResource("2_7j0k7")
+
+[node name="Root" type="Area2D" parent="."]
+
+[node name="rootimage" type="Sprite2D" parent="Root"]
+position = Vector2(51, 4)
+rotation = -1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_5470h")
+
+[node name="root" type="CollisionPolygon2D" parent="Root"]
+polygon = PackedVector2Array(1, -3, -3, 0, 2, 5, 19, 10, 31, 11, 64, -1, 87, 5, 99, 11, 106, 6, 106, 2, 96, 2, 66, -6, 54, -4, 32, 5, 14, 4)
+
+[node name="root2" type="CollisionPolygon2D" parent="Root"]
+polygon = PackedVector2Array(33, 10, 37, 9, 40, 10, 45, 10, 54, 9, 61, 11, 63, 13, 53, 12, 42, 13, 37, 12)
+
+[node name="root3" type="CollisionPolygon2D" parent="Root"]
+polygon = PackedVector2Array(69, -5, 72, -4, 83, -5, 88, -7, 91, -10, 89, -10, 84, -8, 73, -7)

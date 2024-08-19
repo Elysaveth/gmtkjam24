@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkc23s7rl8jmn"]
+
+[ext_resource type="Texture2D" uid="uid://bbr1r65lx35lx" path="res://branches/sprites/branch8.png" id="1_5bac8"]
+[ext_resource type="Script" path="res://scripts/branch.gd" id="1_ec3bs"]
+[ext_resource type="Texture2D" uid="uid://b84u8ibdes8j7" path="res://branches/sprites/tip8.png" id="2_jm5er"]
+[ext_resource type="Resource" uid="uid://p2qlvbhtpp5f" path="res://resources/normal_branch.tres" id="2_sxu4x"]
+
+[node name="branch8" type="Node2D"]
+script = ExtResource("1_ec3bs")
+data = ExtResource("2_sxu4x")
+
+[node name="Base" type="Area2D" parent="."]
+position = Vector2(14, 2)
+
+[node name="base" type="CollisionPolygon2D" parent="Base"]
+polygon = PackedVector2Array(-13, -20, -16, 14, 0, 16, 14, 17, 14, -11)
+
+[node name="branchimage" type="Sprite2D" parent="Base/base"]
+position = Vector2(137, 0)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_5bac8")
+
+[node name="Body" type="Area2D" parent="."]
+position = Vector2(14, 2)
+
+[node name="body" type="CollisionPolygon2D" parent="Body"]
+polygon = PackedVector2Array(14, -11, 38, -5, 53, -1, 61, -1, 70, -2, 86, -5, 118, -12, 130, -13, 145, -11, 173, -7, 204, -9, 205, 5, 187, 7, 170, 9, 147, 9, 133, 8, 110, 10, 69, 17, 37, 19, 14, 17)
+
+[node name="Tip" type="Area2D" parent="."]
+position = Vector2(14, 2)
+
+[node name="tip" type="CollisionPolygon2D" parent="Tip"]
+polygon = PackedVector2Array(205, -10, 206, 4, 222, 3, 243, 2, 256, -1, 270, -6, 282, -12, 290, -12, 285, -14, 278, -14, 271, -10, 257, -8, 228, -12)
+
+[node name="tipimage" type="Sprite2D" parent="Tip/tip"]
+position = Vector2(137, 0)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jm5er")

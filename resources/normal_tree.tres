@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="TreeInstance" load_steps=19 format=3 uid="uid://d00jdhqkdam4h"]
+
+[ext_resource type="Script" path="res://resources/tree_data.gd" id="1_it08l"]
+[ext_resource type="PackedScene" uid="uid://bnvqoforrfwiu" path="res://branches/branch_1.tscn" id="2_ef4dl"]
+[ext_resource type="PackedScene" uid="uid://djfvf7knllyk1" path="res://branches/branch_2.tscn" id="3_dokdp"]
+[ext_resource type="PackedScene" uid="uid://caibvrisfq1lw" path="res://branches/branch_3.tscn" id="4_2xror"]
+[ext_resource type="PackedScene" uid="uid://b2ame3l33ypov" path="res://branches/branch_4.tscn" id="5_anbee"]
+[ext_resource type="PackedScene" uid="uid://br33500p0mdu5" path="res://branches/branch_5.tscn" id="6_xrimp"]
+[ext_resource type="PackedScene" uid="uid://cfeq3i5ibkom7" path="res://branches/branch_6.tscn" id="7_8rdeg"]
+[ext_resource type="PackedScene" uid="uid://b2wgla3qjl4wl" path="res://branches/branch_7.tscn" id="8_lv43g"]
+[ext_resource type="PackedScene" uid="uid://dkc23s7rl8jmn" path="res://branches/branch_8.tscn" id="9_7bbr1"]
+[ext_resource type="PackedScene" uid="uid://bdso3y307683y" path="res://branches/branch_9.tscn" id="10_6ou7r"]
+[ext_resource type="PackedScene" uid="uid://gmeukllv4y0" path="res://branches/branch_10.tscn" id="11_6aiyd"]
+[ext_resource type="PackedScene" uid="uid://befye5wos1f8m" path="res://branches/branch_11.tscn" id="12_3rb7k"]
+[ext_resource type="PackedScene" uid="uid://6lnoq7h542l3" path="res://leafs/hoja.tscn" id="12_5ak8e"]
+[ext_resource type="PackedScene" uid="uid://chtqx8n4a3wjw" path="res://roots/root_1.tscn" id="13_1c45x"]
+[ext_resource type="PackedScene" uid="uid://b3qliea8g5arg" path="res://roots/root_2.tscn" id="14_vudi3"]
+[ext_resource type="PackedScene" uid="uid://do4uxnv4v6l82" path="res://roots/root_3.tscn" id="15_fk3ms"]
+[ext_resource type="PackedScene" uid="uid://dne6qhl2lay7d" path="res://roots/root_4.tscn" id="16_5nakf"]
+[ext_resource type="PackedScene" uid="uid://dgne5yu8pyaue" path="res://roots/root_5.tscn" id="17_doe6u"]
+
+[resource]
+script = ExtResource("1_it08l")
+energy = 200
+GROW_SPEED = 3.0
+branch_types = Array[PackedScene]([ExtResource("2_ef4dl"), ExtResource("3_dokdp"), ExtResource("4_2xror"), ExtResource("5_anbee"), ExtResource("6_xrimp"), ExtResource("7_8rdeg"), ExtResource("8_lv43g"), ExtResource("9_7bbr1"), ExtResource("10_6ou7r"), ExtResource("11_6aiyd"), ExtResource("12_3rb7k")])
+root_types = Array[PackedScene]([ExtResource("13_1c45x"), ExtResource("14_vudi3"), ExtResource("15_fk3ms"), ExtResource("16_5nakf"), ExtResource("17_doe6u")])
+leaf_type = ExtResource("12_5ak8e")

@@ -1,0 +1,237 @@
+[gd_scene load_steps=12 format=3 uid="uid://da1lv37u8i0fx"]
+
+[ext_resource type="Script" path="res://scripts/control.gd" id="1_sq1y8"]
+[ext_resource type="Texture2D" uid="uid://cawm718yj3gy8" path="res://sprites/icons/Ramaresize.png" id="2_c1f5j"]
+[ext_resource type="Texture2D" uid="uid://b0qfxn4ksbrkl" path="res://sprites/icons/Hojaresize.png" id="3_1fi6w"]
+[ext_resource type="Texture2D" uid="uid://brr1knhc2cfc6" path="res://sprites/icons/Raicesresize.png" id="4_6q7n7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylg2k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.906879, 0.769652, 0.679462, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6csj"]
+bg_color = Color(0.65098, 0.65098, 0.65098, 0.498039)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbcr1"]
+bg_color = Color(0.3358, 0.73, 0.51976, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1j1lj"]
+bg_color = Color(0.65, 0.65, 0.65, 0.498039)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdqtb"]
+bg_color = Color(0.2343, 0.61486, 0.71, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g86ia"]
+bg_color = Color(0.46, 0.46, 0.46, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rsb6"]
+size = Vector2(347.5, 177)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_sq1y8")
+
+[node name="Info" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -388.0
+offset_top = 39.0
+offset_right = -43.0
+offset_bottom = 214.0
+grow_horizontal = 0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ylg2k")
+
+[node name="Stats" type="VBoxContainer" parent="Info"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -84.0
+offset_right = -7.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="EnergyBar" type="ProgressBar" parent="Info/Stats"]
+layout_mode = 2
+size_flags_vertical = 10
+mouse_filter = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_c6csj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mbcr1")
+max_value = 500.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Info/Stats"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_1j1lj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rdqtb")
+
+[node name="pause" type="Button" parent="Info"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = 67.0
+grow_horizontal = 0
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_g86ia")
+text = "II"
+
+[node name="branch_mode" type="Button" parent="Info"]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 81.0
+offset_bottom = 80.0
+mouse_filter = 1
+icon = ExtResource("2_c1f5j")
+
+[node name="leaves_mode" type="Button" parent="Info"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 89.0
+offset_top = 8.0
+offset_right = 161.0
+offset_bottom = 80.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_type_variation = &"dark"
+icon = ExtResource("3_1fi6w")
+
+[node name="roots_mode" type="Button" parent="Info"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 169.0
+offset_top = 8.0
+offset_right = 241.0
+offset_bottom = 80.0
+mouse_filter = 1
+icon = ExtResource("4_6q7n7")
+
+[node name="pause_overlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.28, 0.28, 0.28, 0.356863)
+
+[node name="menu" type="VBoxContainer" parent="pause_overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -445.0
+offset_top = -170.0
+offset_right = 446.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="resume" type="Button" parent="pause_overlay/menu"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 60
+text = "Resume"
+
+[node name="retry" type="Button" parent="pause_overlay/menu"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 60
+text = "Retry"
+
+[node name="menu" type="Button" parent="pause_overlay/menu"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 60
+text = "Menu"
+
+[node name="quit" type="Button" parent="pause_overlay/menu"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[node name="Label" type="Label" parent="pause_overlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -813.0
+offset_top = 183.0
+offset_right = 802.0
+offset_bottom = 320.0
+grow_horizontal = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI_area" type="Area2D" parent="."]
+position = Vector2(1532, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI_area"]
+position = Vector2(172.25, 87.5)
+shape = SubResource("RectangleShape2D_4rsb6")
+
+[connection signal="pressed" from="Info/pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Info/branch_mode" to="." method="_on_branch_mode_pressed"]
+[connection signal="pressed" from="Info/leaves_mode" to="." method="_on_leaves_mode_pressed"]
+[connection signal="pressed" from="Info/roots_mode" to="." method="_on_roots_mode_pressed"]
+[connection signal="pressed" from="pause_overlay/menu/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="pause_overlay/menu/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="pause_overlay/menu/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="pause_overlay/menu/quit" to="." method="_on_quit_pressed"]

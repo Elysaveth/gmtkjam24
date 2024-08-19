@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://6lnoq7h542l3"]
+
+[ext_resource type="Texture2D" uid="uid://bqkmym7p1xrtr" path="res://leafs/sprites/hoja2.png" id="1_46a2s"]
+[ext_resource type="Texture2D" uid="uid://d3118eve84laf" path="res://leafs/sprites/hoja.png" id="2_gkjj4"]
+[ext_resource type="Texture2D" uid="uid://d281afkh4jua7" path="res://leafs/sprites/hoja3.png" id="3_ful5y"]
+[ext_resource type="Texture2D" uid="uid://c27p5rt84pgcu" path="res://leafs/sprites/hoja4.png" id="4_jio41"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsskd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_46a2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gkjj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ful5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jio41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ful5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gkjj4")
+}],
+"loop": true,
+"name": &"hoja",
+"speed": 5.0
+}]
+
+[node name="Hoja" type="Area2D"]
+
+[node name="hojitas" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+texture_repeat = 2
+position = Vector2(-3, -3)
+rotation = 0.523599
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_rsskd")
+animation = &"hoja"
+frame = 4
+frame_progress = 0.279267
+offset = Vector2(283.734, -216.218)

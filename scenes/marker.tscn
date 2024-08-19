@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpmvilf5avae7"]
+
+[ext_resource type="Texture2D" uid="uid://dg8hewl0845wu" path="res://sprites/marker.png" id="1_2cyft"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(19, 0)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("1_2cyft")

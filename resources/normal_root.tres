@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BranchInstance" load_steps=2 format=3 uid="uid://bloxm0h165c0r"]
+
+[ext_resource type="Script" path="res://resources/branch_data.gd" id="1_2ann1"]
+
+[resource]
+script = ExtResource("1_2ann1")
+growth_rate = 0.01
+move_rate = 1.0

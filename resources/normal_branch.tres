@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BranchInstance" load_steps=2 format=3 uid="uid://p2qlvbhtpp5f"]
+
+[ext_resource type="Script" path="res://resources/branch_data.gd" id="1_ferxl"]
+
+[resource]
+script = ExtResource("1_ferxl")
+growth_rate = 0.01
+move_rate = 1.0

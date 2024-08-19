@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3 uid="uid://ne8symfd4a2e"]
+
+[ext_resource type="Resource" uid="uid://cjltwg5vmhcus" path="res://resources/normal_branch.tres" id="2_cy13s"]
+[ext_resource type="Texture2D" uid="uid://b4r5tnpe1g4ug" path="res://tests/branch-tree.png" id="3_xk05t"]
+[ext_resource type="Texture2D" uid="uid://drpkvne58qwpu" path="res://tests/branch-base.png" id="4_hac5j"]
+[ext_resource type="Texture2D" uid="uid://f8wfyny5b14u" path="res://tests/branch-body.png" id="5_bn043"]
+[ext_resource type="Texture2D" uid="uid://bj0208ymjoh8m" path="res://tests/branch-tip.png" id="6_hd3b4"]
+
+[sub_resource type="GDScript" id="GDScript_8pj5m"]
+script/source = "extends Node2D
+
+@export var data: BranchInstance
+
+var can_grow: bool = true
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func grow_branch() -> void:
+	if can_grow:
+		self.scale += Vector2(1.0/data.growth_rate, 0.5/data.growth_rate)
+		check_collitions()
+
+func check_collitions() -> void:
+	var tip = get_node(\"tip\")
+	if not is_in_group(\"mother_branch\"):
+		if tip.has_overlapping_areas():
+			for collision in tip.get_overlapping_areas():
+				if collision.is_in_group(\"branch_base\"):
+					continue
+				else:
+					can_grow = false
+					tip.queue_free()
+"
+
+[node name="branch" type="Node2D"]
+script = SubResource("GDScript_8pj5m")
+data = ExtResource("2_cy13s")
+
+[node name="branch" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(43, -1)
+rotation = 1.5708
+scale = Vector2(0.189583, 0.111111)
+texture = ExtResource("3_xk05t")
+offset = Vector2(0, -100)
+
+[node name="base" type="Area2D" parent="." groups=["branch_base"]]
+
+[node name="base" type="CollisionPolygon2D" parent="base"]
+polygon = PackedVector2Array(-2, -8, -2, 8, 9, 7, 9, -6)
+
+[node name="BaseSprite" type="Sprite2D" parent="base"]
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_hac5j")
+
+[node name="body" type="Area2D" parent="." groups=["branch_body"]]
+
+[node name="body" type="CollisionPolygon2D" parent="body"]
+polygon = PackedVector2Array(9, -6, 9, 7, 41, 4, 75, 4, 74, -4, 34, -4)
+
+[node name="BodySprite" type="Sprite2D" parent="body"]
+position = Vector2(39, -1.38556e-13)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_bn043")
+
+[node name="tip" type="Area2D" parent="." groups=["branch_tip"]]
+
+[node name="tip" type="CollisionPolygon2D" parent="tip"]
+polygon = PackedVector2Array(76, 4, 75, -4, 99, -1, 103, 0, 122, 0, 133, 2, 107, 3)
+
+[node name="TipSprite" type="Sprite2D" parent="tip"]
+position = Vector2(106, -1.7053e-13)
+rotation = 1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_hd3b4")
