@@ -41,20 +41,24 @@ func process_input() -> void:
 				get_parent().print_marker()
 				
 		if Input.is_action_just_released("spawn"):
-			if can_grow and data.energy > BRANCH_COST:
-				data.energy -= BRANCH_COST
+			if can_grow:
 				var b: Node2D
 				match mode:
 					0:
-						b = data.pick_random_branch().instantiate()
-						b.scale = Vector2(0.1,0.1)
+						if data.energy > BRANCH_COST:
+							data.energy -= BRANCH_COST
+							b = data.pick_random_branch().instantiate()
+							b.scale = Vector2(0.1,0.1)
 					1:
 						b = data.pick_leaf().instantiate()
-						b.get_node("hojitas").play()
+						b.get_node("Hoja/hojitas").play()
 						b.add_to_group("ignore_grow")
+						b.add_to_group("leafs")
 					2:
-						b = data.pick_random_root().instantiate()
-						b.scale = Vector2(0.4,0.4)
+						if data.energy > BRANCH_COST:
+							data.energy -= BRANCH_COST
+							b = data.pick_random_root().instantiate()
+							b.scale = Vector2(0.4,0.4)
 				add_child(b)
 				b.position = new_branch.position
 				b.look_at(get_global_mouse_position())
@@ -65,6 +69,7 @@ func check_if_touching_branch() -> bool:
 	var pp = PhysicsPointQueryParameters2D.new()
 	pp.collide_with_areas = true 
 	pp.position = get_global_mouse_position()
+	pp.set_exclude([get_node("left").get_rid(), get_node("right").get_rid()])
 	var collitions = get_world_2d().direct_space_state.intersect_point(pp, 1)
 	if collitions:
 		mother_branch = collitions[0].collider.get_parent()
@@ -75,10 +80,8 @@ func check_if_touching_branch() -> bool:
 func check_balance() -> void:
 	get_balance()
 	if balance < -5 and abs(self.rotation) < data.MAX_ANGLE:
-		print(abs(self.rotation))
 		self.rotation -= 0.001
 	if balance > 5 and abs(self.rotation) < data.MAX_ANGLE:
-		print(abs(self.rotation))
 		self.rotation += 0.001
 
 func get_balance() -> void:
@@ -86,16 +89,23 @@ func get_balance() -> void:
 	var right = get_node("right").get_overlapping_areas()
 	balance = 0.0
 	for area in left:
+		if data.energy > 0 and check_growth:
+			area.get_parent().position.x -= 5
 		balance -= 1
 	for area in right:
+		if data.energy > 0 and check_growth:
+			area.get_parent().position.x += 5
 		balance += 1
 
 func grow_all_children() -> void:
 	data.energy -= 1
 	check_growth = false
 	for child in get_children():
+		#child.rotation
 		if not child.is_in_group("ignore_grow"):
 			child.grow_branch()
+		elif child.is_in_group("leafs"):
+			child.position.y -= data.move_rate_leafs
 	await get_tree().create_timer(1.0/data.GROW_SPEED).timeout
 	check_growth = true
 	

@@ -16,13 +16,13 @@ data = ExtResource("2_c13xy")
 [node name="left" type="Area2D" parent="." groups=["ignore_grow", "not_branch"]]
 position = Vector2(-445, -765)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+[node name="left_collision" type="CollisionShape2D" parent="left"]
 position = Vector2(-80, 217)
 shape = SubResource("RectangleShape2D_vlle4")
 
 [node name="right" type="Area2D" parent="." groups=["ignore_grow", "not_branch"]]
 position = Vector2(564, -547)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="right"]
+[node name="right_collision" type="CollisionShape2D" parent="right"]
 position = Vector2(-41.25, -1.5)
 shape = SubResource("RectangleShape2D_t1g64")
