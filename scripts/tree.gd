@@ -74,9 +74,11 @@ func check_if_touching_branch() -> bool:
 
 func check_balance() -> void:
 	get_balance()
-	if balance < -5:
+	if balance < -5 and abs(self.rotation) < data.MAX_ANGLE:
+		print(abs(self.rotation))
 		self.rotation -= 0.001
-	if balance > 5:
+	if balance > 5 and abs(self.rotation) < data.MAX_ANGLE:
+		print(abs(self.rotation))
 		self.rotation += 0.001
 
 func get_balance() -> void:
