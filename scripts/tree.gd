@@ -24,7 +24,7 @@ func _ready() -> void:
 	mother_branch.add_to_group("mother_branch")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if running:
 		process_input()
@@ -90,11 +90,13 @@ func get_balance() -> void:
 	balance = 0.0
 	for area in left:
 		if data.energy > 0 and check_growth:
-			area.get_parent().position.x -= 5
+			area.get_parent().position.x -= 12
+			print(area.get_parent().position.x)
+			
 		balance -= 1
 	for area in right:
 		if data.energy > 0 and check_growth:
-			area.get_parent().position.x += 5
+			area.get_parent().position.x += 12
 		balance += 1
 
 func grow_all_children() -> void:

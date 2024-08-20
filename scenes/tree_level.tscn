@@ -10,7 +10,6 @@
 script = ExtResource("1_niq0h")
 
 [node name="intro" parent="." instance=ExtResource("2_qasvy")]
-visible = false
 z_index = 2
 
 [node name="seed_point" type="Marker2D" parent="."]

@@ -17,7 +17,7 @@ func _ready() -> void:
 	tree.position = get_node("seed_point").get_global_position()
 	get_node("UI/Info/Stats/EnergyBar").max_value = tree.data.energy
 	
-	#await(get_tree().create_timer(13)).timeout
+	await(get_tree().create_timer(13)).timeout
 	tree.running = true
 
 

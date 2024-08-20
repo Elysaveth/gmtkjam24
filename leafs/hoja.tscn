@@ -44,3 +44,7 @@ scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_f4w0t")
 animation = &"hoja"
 offset = Vector2(283.734, -216.218)
+
+[node name="apanyo" type="Area2D" parent="."]
+
+[node name="apanyo2" type="Area2D" parent="."]
