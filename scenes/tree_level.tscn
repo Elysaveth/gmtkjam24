@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/tree_level.gd" id="1_niq0h"]
 [ext_resource type="Texture2D" uid="uid://baj167qobsq0p" path="res://sprites/background-tree.png" id="2_v70m1"]
 [ext_resource type="PackedScene" uid="uid://da1lv37u8i0fx" path="res://scenes/control.tscn" id="3_7ed2u"]
-[ext_resource type="AudioStream" uid="uid://cmudct671ayc4" path="res://resources/Popota said tiriri.mp3" id="4_8ksen"]
+[ext_resource type="AudioStream" path="res://resources/Popota said tiriri.mp3" id="4_8ksen"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_niq0h")

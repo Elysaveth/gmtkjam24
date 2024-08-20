@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://intro.gd" id="1_740f0"]
 [ext_resource type="Texture2D" uid="uid://d3gy86it0gxi1" path="res://sprites/INTRO/Slide1.PNG" id="2_8tbfw"]
 [ext_resource type="Texture2D" uid="uid://dnxpn7yr8351e" path="res://sprites/INTRO/Slide2.PNG" id="3_7go34"]
-[ext_resource type="AudioStream" uid="uid://cmudct671ayc4" path="res://resources/Popota said tiriri.mp3" id="3_argo6"]
+[ext_resource type="AudioStream" uid="uid://dxgmf13k8xbah" path="res://resources/Musica/Popota said tiriri.ogg" id="4_ykchl"]
 
 [sub_resource type="Animation" id="Animation_jrucf"]
 length = 0.001
@@ -34,7 +34,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ml2be"]
 resource_name = "fade in"
-length = 10.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,8 +42,8 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 3, 5, 7.03333, 9.56667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(1.03333, 3, 5, 8, 9.56667),
+"transitions": PackedFloat32Array(1.03526, 1, 0.732043, 2.54912, 0.554785),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
@@ -104,6 +104,6 @@ libraries = {
 }
 
 [node name="music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_argo6")
+stream = ExtResource("4_ykchl")
 autoplay = true
 parameters/looping = false
