@@ -22,7 +22,7 @@
 [resource]
 script = ExtResource("1_it08l")
 energy = 1000
-move_rate_leafs = 2.5
+move_rate_leafs = 0.5
 GROW_SPEED = 3.0
 MAX_ANGLE = 0.1
 branch_types = Array[PackedScene]([ExtResource("2_ef4dl"), ExtResource("3_dokdp"), ExtResource("4_2xror"), ExtResource("5_anbee"), ExtResource("6_xrimp"), ExtResource("7_8rdeg"), ExtResource("8_lv43g"), ExtResource("9_7bbr1"), ExtResource("10_6ou7r"), ExtResource("11_6aiyd"), ExtResource("12_3rb7k")])
