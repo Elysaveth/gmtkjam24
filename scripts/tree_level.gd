@@ -16,7 +16,9 @@ func _ready() -> void:
 	add_child(tree)
 	tree.position = get_node("seed_point").get_global_position()
 	get_node("UI/Info/Stats/EnergyBar").max_value = tree.data.energy
-	tree.running = true
+	
+	
+	tree.running = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
