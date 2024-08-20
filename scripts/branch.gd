@@ -3,6 +3,7 @@ extends Node2D
 @export var data: BranchInstance
 
 var can_grow: bool = true
+var max_growth: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,7 +15,8 @@ func _process(_delta: float) -> void:
 	pass
 
 func grow_branch() -> void:
-	if can_grow:
+	if can_grow and max_growth > 0:
+		max_growth -= 1
 		self.scale += Vector2(data.growth_rate, data.growth_rate/2.0)
 		check_collitions()
 	if self.name != "Seed":
