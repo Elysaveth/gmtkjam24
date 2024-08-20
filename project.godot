@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Built to Scale"
-run/main_scene="res://scenes/intro.tscn"
+run/main_scene="res://scenes/tree_level.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://sprites/icon.svg"
+config/icon="res://sprites/Icono.svg"
 
 [display]
 
