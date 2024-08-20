@@ -190,9 +190,10 @@ text = "Resume"
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/font_size = 60
-text = "Retry"
+text = "Restart"
 
 [node name="menu" type="Button" parent="pause_overlay/menu"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme_override_font_sizes/font_size = 60
