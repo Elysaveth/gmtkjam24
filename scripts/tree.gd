@@ -20,6 +20,7 @@ func _ready() -> void:
 	add_child(b1)
 	b1.look_at(Vector2(self.position.x, self.position.y - 10))
 	b1.scale = Vector2(0.2,0.2)
+	b1.max_growth = data.energy
 	mother_branch = b1
 	mother_branch.add_to_group("mother_branch")
 
@@ -48,6 +49,7 @@ func process_input() -> void:
 						if data.energy > BRANCH_COST:
 							data.energy -= BRANCH_COST
 							b = data.pick_random_branch().instantiate()
+							b.max_growth = randi() % 400 + 100
 							b.scale = Vector2(0.1,0.1)
 					1:
 						b = data.pick_leaf().instantiate()
