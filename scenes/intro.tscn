@@ -86,8 +86,8 @@ _data = {
 script = ExtResource("1_740f0")
 
 [node name="logo" type="Sprite2D" parent="."]
-position = Vector2(960.75, 535)
-scale = Vector2(1.4957, 1.48472)
+position = Vector2(960, 541)
+scale = Vector2(1.50313, 1.50556)
 texture = ExtResource("2_8tbfw")
 
 [node name="ColorRect" type="ColorRect" parent="."]

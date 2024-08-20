@@ -12,6 +12,8 @@ var running: bool = true
 var balance: float = 0
 var playing_area: bool = true
 var mode: int = 0 # 0 is branch, 1 is leaf, 2 is root
+var first_branch: bool = true
+var first_root_or_leaf: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,19 +49,29 @@ func process_input() -> void:
 				match mode:
 					0:
 						if data.energy > BRANCH_COST:
+							if first_branch:
+								first_branch = false
+								get_parent().pass_tutorial()
 							data.energy -= BRANCH_COST
 							b = data.pick_random_branch().instantiate()
 							b.max_growth = randi() % 400 + 100
 							b.scale = Vector2(0.1,0.1)
 					1:
+						if first_root_or_leaf:
+							first_root_or_leaf = false
+							get_parent().pass_tutorial()
 						b = data.pick_leaf().instantiate()
 						b.get_node("Hoja/hojitas").play()
 						b.add_to_group("ignore_grow")
 						b.add_to_group("leafs")
 					2:
+						if first_root_or_leaf:
+							first_root_or_leaf = false
+							get_parent().pass_tutorial()
 						if data.energy > BRANCH_COST:
 							data.energy -= BRANCH_COST
 							b = data.pick_random_root().instantiate()
+							b.max_growth = randi() % 800 + 400
 							b.scale = Vector2(0.4,0.4)
 				add_child(b)
 				b.position = new_branch.position
@@ -93,7 +105,6 @@ func get_balance() -> void:
 	for area in left:
 		if data.energy > 0 and check_growth:
 			area.get_parent().position.x -= 12
-			print(area.get_parent().position.x)
 			
 		balance -= 1
 	for area in right:
@@ -105,7 +116,6 @@ func grow_all_children() -> void:
 	data.energy -= 1
 	check_growth = false
 	for child in get_children():
-		#child.rotation
 		if not child.is_in_group("ignore_grow"):
 			child.grow_branch()
 		elif child.is_in_group("leafs"):

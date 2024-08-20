@@ -35,3 +35,30 @@ offset = Vector2(960, 540)
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_vytmw")
 autoplay = true
+bus = &"music"
+
+[node name="tutorial" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 672.0
+offset_right = 753.0
+offset_bottom = 721.0
+theme_override_font_sizes/font_size = 30
+text = "Click and drag to create your first branch..."
+
+[node name="tutorial2" type="Label" parent="."]
+z_index = 1
+offset_left = 1222.0
+offset_top = 246.0
+offset_right = 1855.0
+offset_bottom = 302.0
+theme_override_font_sizes/font_size = 30
+text = "Change modes to create roots and leafs..."
+
+[node name="tutorial3" type="Label" parent="."]
+z_index = 1
+offset_left = 923.0
+offset_top = 456.0
+offset_right = 1015.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 30
+text = "Grow!"

@@ -57,7 +57,7 @@ corner_radius_bottom_right = 1
 corner_radius_bottom_left = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4rsb6"]
-size = Vector2(347.5, 177)
+size = Vector2(347.5, 158)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -77,7 +77,7 @@ anchor_right = 1.0
 offset_left = -388.0
 offset_top = 39.0
 offset_right = -43.0
-offset_bottom = 214.0
+offset_bottom = 194.0
 grow_horizontal = 0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_ylg2k")
@@ -103,11 +103,21 @@ theme_override_styles/background = SubResource("StyleBoxFlat_c6csj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mbcr1")
 max_value = 500.0
 
+[node name="Label" type="Label" parent="Info/Stats/EnergyBar"]
+layout_mode = 2
+offset_left = 3.0
+offset_top = -27.0
+offset_right = 334.0
+offset_bottom = -4.0
+text = "Energy"
+
 [node name="ProgressBar" type="ProgressBar" parent="Info/Stats"]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme_override_styles/background = SubResource("StyleBoxFlat_1j1lj")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rdqtb")
+show_percentage = false
 
 [node name="pause" type="Button" parent="Info"]
 layout_mode = 1
@@ -225,7 +235,7 @@ vertical_alignment = 1
 position = Vector2(1532, 39)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI_area"]
-position = Vector2(172.25, 87.5)
+position = Vector2(173, 77)
 shape = SubResource("RectangleShape2D_4rsb6")
 
 [connection signal="pressed" from="Info/pause" to="." method="_on_pause_pressed"]

@@ -17,8 +17,20 @@ func _ready() -> void:
 	tree.position = get_node("seed_point").get_global_position()
 	get_node("UI/Info/Stats/EnergyBar").max_value = tree.data.energy
 	
-	await(get_tree().create_timer(13)).timeout
+	$tutorial.modulate.a = 0
+	$tutorial2.modulate.a = 0
+	$tutorial3.modulate.a = 0
+	
+	if Load.intro:
+		Load.skip_intro()
+		await(get_tree().create_timer(13)).timeout
+	else:
+		get_node("intro").hide()
 	tree.running = true
+	if Load.tutorial == 1:
+		await(get_tree().create_timer(1)).timeout
+		var tween = create_tween()
+		tween.tween_property($tutorial, "modulate:a", 1.0, 1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,9 +65,26 @@ func change_mode(mode: int) -> void:
 func pause() -> void:
 	tree.running = false
 	get_node("UI").get_node("pause_overlay").show()
-	get_node("music").bus = "underwater"
+	var music_bus = AudioServer.get_bus_index("music")
+	AudioServer.set_bus_volume_db(music_bus, -12)
+	#get_node("music").bus = "underwater"
 	
 func resume() -> void:
 	tree.running = true
 	get_node("UI").get_node("pause_overlay").hide()
-	get_node("music").bus = "music"
+	var music_bus = AudioServer.get_bus_index("music")
+	AudioServer.set_bus_volume_db(music_bus, 0)
+	#get_node("music").bus = "music"
+	
+func pass_tutorial() -> void:
+	var tween = create_tween()
+	if Load.tutorial == 1:
+		tween.tween_property($tutorial, "modulate:a", 0.0, 1)
+		tween.tween_property($tutorial2, "modulate:a", 1.0, 1)
+		Load.tutorial = 2
+	elif Load.tutorial == 2:
+		tween.tween_property($tutorial2, "modulate:a", 0.0, 1)
+		tween.tween_property($tutorial3, "modulate:a", 1.0, 1)
+		tween.tween_property($tutorial3, "modulate:a", 0.0, 1)
+		Load.tutorial = 3
+	
