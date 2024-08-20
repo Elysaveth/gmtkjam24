@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_2ann1")
-growth_rate = 0.01
-move_rate = 1.0
+growth_rate = 0.001
+move_rate = 0.1
